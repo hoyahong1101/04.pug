@@ -19,3 +19,22 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.locals.pretty = true; // 클라이언트에 보내주는 소스를 들여쓰기 해준다.
 
+app.get(["/pug", "/pug/:page"], (req, res) => {
+	let page = req.params.page ? req.params.page: "list";
+	let vals = {};
+	switch(page){
+		case "list":
+			vals.title = "게시글 리스트 입니다.";
+			res.render("list.pug", vals);
+			break;
+		case "write":
+			vals.title = "게시글 작성 입니다.";
+			res.render("write.pug", vals);
+			break;
+		default:
+			res.redirect("/");
+			break;
+			
+	}
+})
+
