@@ -1,7 +1,10 @@
-html
-    head(lang="ko")
-        include ../inc/head.pug
-    body
-        div.container.my-2
-            block title-wrap
-            block content
+doctype html
+html(lang="ko")
+	include ../inc/head.pug
+	include ../inc/nav.pug
+	body
+		div.container.my-2
+			block title
+			block content
+	include ../inc/footer.pug
+	include ../inc/script.pug
